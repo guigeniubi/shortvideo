@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    password: zengb123
+    url: jdbc:mysql:///myvideo
+
+  redis:
+    port: 6379
+    host: localhost
+
+
+logging:
+  level:
+    com.example: debug
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper.sys/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  type-aliases-package: com.example.*.entity

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sys.mapper.UserFavoriteMapper">
+    <select id="selectFavoriteVideoUrlsByUserId" resultType="String" parameterType="Integer">
+        SELECT b.video_url
+        FROM user_favorite a,video b
+        WHERE a.user_id=b.user_id
+          AND a.user_id=#{userId}
+    </select>
+
+    <select id="checkVideoFavorite" resultType="Integer" parameterType="Integer">
+        SELECT COUNT(*) FROM user_favorite WHERE user_id = #{userId} AND video_id = #{videoId}
+    </select>
+</mapper>
